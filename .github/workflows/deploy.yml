@@ -21,6 +21,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install angular-cli-ghpages
+        run: npm i angular-cli-ghpages
+
+      - name: Add angular-cli-ghpages to projec
+        run: ng add angular-cli-ghpages
+
       - name: Deploy
         run: ng deploy
 
