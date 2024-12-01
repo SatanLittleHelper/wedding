@@ -13,7 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/wedding",
+            "baseHref": "/wedding/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -89,11 +90,14 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
   },
   "cli": {
-    "analytics": "7c60afe9-e239-46c0-bc4b-0efdf0465ced"
+    "analytics": "30413772-3d26-4856-a2ce-b2e17f76bf2d"
   }
 }
