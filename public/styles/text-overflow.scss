@@ -1,0 +1,11 @@
+@mixin text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0; // Hack for ellipsis to work
+}
+
+.text-overflow {
+  @include text-overflow;
+}
+

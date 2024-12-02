@@ -1,0 +1,122 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "change-detection-strategy",
+    "@angular-eslint",
+    "@angular-eslint/template"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "airbnb-base",
+        "airbnb-typescript/base",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "change-detection-strategy/on-push": "warn",
+        "@typescript-eslint/explicit-member-accessibility": ["error", { "accessibility": "no-public" }],
+        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/member-ordering": [
+          "warn",
+          {
+            "default": [
+              "public-static-field",
+              "protected-static-field",
+              "private-static-field",
+              "public-instance-field",
+              "protected-instance-field",
+              "private-instance-field",
+              "public-constructor",
+              "public-decorated-method",
+              "protected-decorated-method",
+              "private-decorated-method",
+              "protected-constructor",
+              "private-constructor",
+              "public-decorated-method",
+              "protected-decorated-method",
+              "private-decorated-method",
+              "public-instance-method",
+              "protected-instance-method",
+              "private-instance-method"
+            ]
+          }
+        ],
+        "@typescript-eslint/no-empty-function": "warn",
+        "@typescript-eslint/no-inferrable-types": ["warn", {"ignoreParameters": true, "ignoreProperties": true}],
+        "@typescript-eslint/no-unused-vars": ["warn", {
+          "argsIgnorePattern": "^_"
+        }],
+        "@typescript-eslint/no-explicit-any": "warn",
+        "arrow-parens": ["warn", "always"],
+        "arrow-spacing": ["warn", { "before": true, "after": true }],
+        "block-spacing": "warn",
+        "comma-dangle": ["error", "always-multiline"],
+        "comma-spacing": "warn",
+        "eol-last": "warn",
+        "func-call-spacing": "warn",
+        "indent": ["error", 2, {"SwitchCase": 1}],
+        "linebreak-style": ["warn", "unix"],
+        "max-len": ["warn", { "code": 120 }],
+        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "no-duplicate-imports": "error",
+        "no-fallthrough": "warn",
+        "no-multi-spaces": "warn",
+        "no-multiple-empty-lines": ["warn", { "max": 1, "maxEOF": 0 }],
+        "no-trailing-spaces": ["warn"],
+        "object-curly-spacing": ["warn", "always"],
+        "quote-props": ["warn", "as-needed"],
+        "quotes": ["warn", "single", {"avoidEscape": true}],
+        "semi": "warn",
+        "import/no-import-module-exports": "off",
+        "@typescript-eslint/lines-between-class-members": "off",
+        "no-underscore-dangle": "off",
+        "class-methods-use-this": "off",
+        "import/prefer-default-export": "off",
+        "@angular-eslint/no-output-native": "off",
+        "no-plusplus": "off",
+        "no-void": "off",
+        "default-case": "off",
+        "consistent-return": "warn",
+        "import/no-extraneous-dependencies": "off",
+        "@typescript-eslint/default-param-last": "off",
+        "padding-line-between-statements": [
+          "error",
+          { "blankLine": "always", "prev": "if", "next": "if" },
+          { "blankLine": "always", "prev": "*", "next": "return" }
+        ]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {
+        "max-len": "off",
+        "@angular-eslint/template/no-negated-async": "off",
+        "indent": "off",
+        "no-trailing-spaces": "off"
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:prettier/recommended"],
+      "rules": {
+        "prettier/prettier": ["error", { "parser": "angular" }]
+      }
+    }
+  ]
+}
