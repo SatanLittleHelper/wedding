@@ -1,11 +1,9 @@
-@import "variables";
-
 :host {
   display: flex;
   width: 393px;
   border-radius: 45px;
   justify-content: center;
-  background-color: $bg-color;
+  background-color: var(--bg-color);
 
   padding: 32px 24px;
 }

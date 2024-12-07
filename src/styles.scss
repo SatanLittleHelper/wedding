@@ -1,6 +1,7 @@
-@import "variables";
-@import "reboot";
-@import "text-overflow";
+@use "variables";
+@use "reboot";
+@use "text-overflow";
+@use "fonts";
 
 .container {
   display: flex;
