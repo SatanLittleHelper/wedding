@@ -8,6 +8,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SectionComponent {
-  protected title = input<string>();
-  protected subTitle = input<string>();
+  title = input<string>();
+  subTitle = input<string>();
 }
