@@ -1,0 +1,11 @@
+﻿{
+  "**/*.+(js|jsx|less|ts|tsx)": [
+    "eslint"
+  ],
+  "**/*.+(html)": [
+    "prettier"
+  ],
+  "**/*.+(scss)": [
+    "stylelint"
+  ]
+}
