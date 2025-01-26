@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
+  padding: 8px 72px;
+  border-radius: 10px;
+  border: none;
+
+
+  &_main {
+    background-color: #C5D2B9;
+  }
+
+  &_secondary {
+    background-color: #BDAAA6;
+  }
+
+  &__text {
+    font-size: 15px;
+  }
+}

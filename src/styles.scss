@@ -7,3 +7,47 @@
   display: flex;
   justify-content: center;
 }
+
+img {
+  width: 100%;
+}
+
+.header {
+  color: var(--black);
+  text-align: center;
+  font-family: "Old Standard TT", serif;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  text-wrap: nowrap;
+
+  &_cursive {
+    text-transform: none;
+    font-family: "Bickham Script Two", cursive;
+    font-size: 32px;
+  }
+
+}
+
+.text {
+  color: #000000;
+  font-family: Ysabeau, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.mt16 {
+  margin-top: 16px;
+}
+
+.relative {
+  position: relative;
+}
+
+.f-size18 {
+  font-size: 18px;
+}

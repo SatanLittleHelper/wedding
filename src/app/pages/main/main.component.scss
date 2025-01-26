@@ -1,9 +1,55 @@
 :host {
   display: flex;
+  flex-direction: column;
   width: 393px;
-  border-radius: 45px;
+  border-radius: 50px;
   justify-content: center;
   background-color: var(--bg-color);
+  padding: 32px 0;
 
-  padding: 32px 24px;
+
+  & > :not(:first-child) {
+    margin-top: 24px;
+  }
+}
+
+section {
+  padding: 0 24px;
+
+  & > :not(:first-child) {
+    margin-top: 24px;
+  }
+}
+
+.img240px {
+  height: 240px;
+  object-fit: cover;
+}
+
+.branch {
+  position: absolute;
+  top: -16px;
+  object-fit: cover;
+  right: -24px;
+  max-width: 150px;
+  height: 125px;
+}
+
+.camel {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  position: relative;
+
+  &__img {
+    width: 158px;
+  }
+
+  &__branch {
+    position: absolute;
+    top: -48px;
+    right: -24px;
+    width: 152px;
+    object-fit: cover;
+  }
 }
