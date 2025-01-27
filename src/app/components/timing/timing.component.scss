@@ -1,0 +1,41 @@
+.timing {
+  display: flex;
+  flex-direction: column;
+  padding: 0 48px;
+  gap: 8px;
+
+  &__img {
+    inline-size: auto;
+
+    &_reversed {
+      rotate: 180deg;
+    }
+  }
+
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: -15px;
+  }
+
+  &__text {
+    display: flex;
+    font-size: 14px;
+  }
+
+  &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &__line {
+    margin-left: 6px;
+    width: 2px;
+    height: 30px;
+  }
+
+}
+

@@ -1,0 +1,45 @@
+<div class="timing">
+  <div>
+    <img
+      class="timing__img"
+      src="assets/icons/kolosok.svg"
+      alt=""
+    />
+  </div>
+  <div>
+    <img
+      class="timing__img timing__line"
+      src="assets/icons/line.svg"
+      alt=""
+    />
+  </div>
+  @for (timing of timings(); track timing.name) {
+    <div class="timing__item">
+      <div>
+        <img
+          class="timing__img"
+          [src]="getIconPath(timing.icon)"
+          alt=""
+        />
+      </div>
+      <div class="timing__text-wrapper">
+        <p class="header timing__text">{{ timing.time }}</p>
+        <p class="header timing__text">{{ timing.name }}</p>
+      </div>
+    </div>
+    <div>
+      <img
+        class="timing__img timing__line"
+        src="assets/icons/line.svg"
+        alt=""
+      />
+    </div>
+  }
+  <div>
+    <img
+      class="timing__img timing__img_reversed"
+      src="assets/icons/kolosok.svg"
+      alt=""
+    />
+  </div>
+</div>
