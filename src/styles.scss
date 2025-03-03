@@ -1,7 +1,11 @@
-@use "variables";
-@use "reboot";
-@use "text-overflow";
-@use "fonts";
+@use 'variables';
+@use 'reboot';
+@use 'text-overflow';
+@use 'fonts';
+
+body {
+  background-color: var(--bg-color);
+}
 
 .container {
   overflow-x: hidden;
@@ -16,7 +20,7 @@ img {
 .header {
   color: var(--black);
   text-align: center;
-  font-family: "Old Standard TT", serif;
+  font-family: 'Old Standard TT', serif;
   font-size: 26px;
   font-style: normal;
   font-weight: 400;
@@ -26,10 +30,9 @@ img {
 
   &_cursive {
     text-transform: none;
-    font-family: "Bickham Script Two", "Great Vibes", cursive;
+    font-family: 'Bickham Script Two', 'Great Vibes', cursive;
     font-size: 32px;
   }
-
 }
 
 .text {

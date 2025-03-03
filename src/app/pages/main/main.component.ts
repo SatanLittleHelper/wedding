@@ -40,8 +40,8 @@ export class MainComponent {
   ];
 
   openMap(): void {
-    const lat = '55.375439';
-    const lng = '35.855392';
+    const location = ['55.376623', '35.857011'];
+    const [lat, lng] = location;
 
     const yandexUrl = `yandexnavi://build_route_on_map?lat_to=${lat}&lon_to=${lng}`;
     const fallbackUrl = `https://yandex.ru/maps/?rtext=~${lat},${lng}&rtt=auto`;
