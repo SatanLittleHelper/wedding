@@ -38,4 +38,18 @@ export class MainComponent {
       time: '23:00',
     },
   ];
+
+  openMap(): void {
+    const lat = '55.375439';
+    const lng = '35.855392';
+
+    const yandexUrl = `yandexnavi://build_route_on_map?lat_to=${lat}&lon_to=${lng}`;
+    const fallbackUrl = `https://yandex.ru/maps/?rtext=~${lat},${lng}&rtt=auto`;
+
+    window.location.href = yandexUrl;
+
+    setTimeout(() => {
+      window.open(fallbackUrl, '_blank');
+    }, 2000);
+  }
 }
