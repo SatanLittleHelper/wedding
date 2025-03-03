@@ -3,7 +3,7 @@
 @use 'text-overflow';
 @use 'fonts';
 
-body {
+body, .t-filler {
   background-color: var(--bg-color);
 }
 

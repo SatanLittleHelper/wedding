@@ -1,0 +1,44 @@
+:host {
+  display: flex;
+  min-height: 100vh;
+}
+
+.confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: var(--bg-color);
+  padding: 16px;
+  flex: 1;
+
+  .header {
+    margin-top: 24px;
+  }
+}
+
+.guests {
+ display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.guest-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+
+  & input {
+    background-color: white;
+  }
+}
+
+.actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}

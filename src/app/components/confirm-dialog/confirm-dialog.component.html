@@ -1,0 +1,73 @@
+<div class="confirm">
+  <div class="header header_cursive">Дорогие гости!</div>
+  <p class="text">Заполните, пожалуйста, небольшую анкету, чтобы мы не потеряли Вас!</p>
+
+  <form
+    [formGroup]="guestForm"
+    (ngSubmit)="submitForm()"
+  >
+    <div
+      class="guests"
+      formArrayName="guests"
+    >
+      @for (guest of guests.controls; track guest; let i = $index) {
+        <div [formGroupName]="i">
+          <div class="guest-card">
+            <tui-textfield>
+              * Имя
+              <input
+                type="text"
+                tuiTextfield
+                formControlName="firstName"
+                placeholder="Имя"
+              />
+            </tui-textfield>
+            <tui-textfield>
+              * Фамилия
+              <input
+                type="text"
+                tuiTextfield
+                formControlName="lastName"
+                placeholder="Фамилия"
+              />
+            </tui-textfield>
+            <tui-textfield>
+              * Телефон
+              <input
+                tuiInputPhoneInternational
+                formControlName="phone"
+                [countries]="countries"
+              />
+            </tui-textfield>
+            <tui-textfield>
+              Телеграм
+              <input
+                type="text"
+                tuiTextfield
+                formControlName="telegram"
+                placeholder="Телеграм"
+              />
+            </tui-textfield>
+            @if (guests.length > 1) {
+              <app-button
+                type="secondary"
+                (click)="removeGuest(i)"
+              >
+                Удалить
+              </app-button>
+            }
+          </div>
+        </div>
+      }
+    </div>
+    <div class="actions">
+      <app-button
+        type="main"
+        (click)="addGuest()"
+      >
+        Добавить гостя
+      </app-button>
+      <app-button type="secondary">Отправить</app-button>
+    </div>
+  </form>
+</div>

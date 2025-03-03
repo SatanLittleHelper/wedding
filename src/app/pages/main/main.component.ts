@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { tuiDialog } from '@taiga-ui/core';
 import { ButtonComponent } from '../../components/button/button.component';
 import { Timing, TimingComponent } from '../../components/timing/timing.component';
 import { DressCodeComponent } from '../../components/dress-code/dress-code.component';
+import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-main',
@@ -30,7 +32,7 @@ export class MainComponent {
     {
       name: 'торт',
       icon: 'cake',
-      time: '20:00',
+      time: '21:30',
     },
     {
       name: 'Завершение торжества',
@@ -38,8 +40,17 @@ export class MainComponent {
       time: '23:00',
     },
   ];
+  private readonly dialog = tuiDialog(ConfirmDialogComponent, {
+    size: 'page',
+    closeable: true,
+    dismissible: true,
+  });
 
-  openMap(): void {
+  protected showDialog(): void {
+    this.dialog().subscribe();
+  }
+
+  protected openMap(): void {
     const location = ['55.376623', '35.857011'];
     const [lat, lng] = location;
 

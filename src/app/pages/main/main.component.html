@@ -61,7 +61,12 @@
   <p class="text">
     Пожалуйста подтвердите свое присутствие до 1.06.2025, чтобы мы могли правильно организовать мероприятие.
   </p>
-  <app-button type="secondary"> Подтвердить </app-button>
+  <app-button
+    (click)="showDialog()"
+    type="secondary"
+  >
+    Подтвердить
+  </app-button>
 </section>
 <section>
   <div class="header header_cursive">
