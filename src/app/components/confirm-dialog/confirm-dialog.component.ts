@@ -9,7 +9,7 @@ import type { TuiCountryIsoCode } from '@taiga-ui/i18n';
 import { TuiInputPhoneInternational } from '@taiga-ui/experimental';
 import { tuiInputPhoneInternationalOptionsProvider } from '@taiga-ui/kit';
 import { defer } from 'rxjs';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { ButtonComponent } from '../button/button.component';
 
 @Component({
@@ -68,8 +68,11 @@ export class ConfirmDialogComponent {
 
   submitForm(): void {
     if (this.guestForm.valid) {
-      const url = 'https://script.google.com/macros/s/AKfycbyCwsx3o26mb1oI0cD5wccGq0baCAtHBpEhJkrA8uc69iQUuJEMf4HxdKbt-r4eR1On0w/exec';
-      this.http.post(url, this.guestForm.value).subscribe();
+      const headers = new HttpHeaders({
+        'Content-Type': 'text/plain;charset=utf-8',
+      });
+      const url = 'https://script.google.com/macros/s/AKfycbyPdkK7ywVCo2jVHNulcjabd59cYJU8ChwGpIXqF-JhCQeUwrhPPqzzChWr4eM-OjSPZQ/exec';
+      this.http.post(url, this.guestForm.value, { headers }).subscribe();
     }
   }
 
