@@ -2,10 +2,7 @@
   <div class="header header_cursive">Дорогие гости!</div>
   <p class="text">Заполните, пожалуйста, небольшую анкету, чтобы мы не потеряли Вас!</p>
 
-  <form
-    [formGroup]="guestForm"
-    (ngSubmit)="submitForm()"
-  >
+  <form [formGroup]="guestForm">
     <div
       class="guests"
       formArrayName="guests"
@@ -67,7 +64,11 @@
       >
         Добавить гостя
       </app-button>
-      <app-button type="secondary">Отправить</app-button>
+      <app-button
+        (click)="submitForm()"
+        type="secondary"
+        >Отправить</app-button
+      >
     </div>
   </form>
 </div>

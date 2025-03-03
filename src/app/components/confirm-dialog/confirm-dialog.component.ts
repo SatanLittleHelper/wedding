@@ -9,7 +9,7 @@ import type { TuiCountryIsoCode } from '@taiga-ui/i18n';
 import { TuiInputPhoneInternational } from '@taiga-ui/experimental';
 import { tuiInputPhoneInternationalOptionsProvider } from '@taiga-ui/kit';
 import { defer } from 'rxjs';
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { doc, Firestore, setDoc } from '@angular/fire/firestore';
 import { ButtonComponent } from '../button/button.component';
 
 @Component({
@@ -20,7 +20,6 @@ import { ButtonComponent } from '../button/button.component';
     TuiTextfieldComponent,
     TuiInputPhoneInternational,
     TuiTextfieldDirective,
-    HttpClientModule,
   ],
   templateUrl: './confirm-dialog.component.html',
   styleUrl: './confirm-dialog.component.scss',
@@ -37,7 +36,7 @@ export class ConfirmDialogComponent {
   protected readonly countries: ReadonlyArray<TuiCountryIsoCode> = ['RU', 'KZ', 'UA', 'BY'];
 
   private readonly context = injectContext<TuiDialogContext<boolean>>();
-  private http = inject(HttpClient);
+  private firestore = inject(Firestore);
 
   constructor(private fb: FormBuilder) {
     this.guestForm = this.fb.group({
@@ -68,11 +67,10 @@ export class ConfirmDialogComponent {
 
   submitForm(): void {
     if (this.guestForm.valid) {
-      const headers = new HttpHeaders({
-        'Content-Type': 'text/plain;charset=utf-8',
-      });
-      const url = 'https://script.google.com/macros/s/AKfycbyPdkK7ywVCo2jVHNulcjabd59cYJU8ChwGpIXqF-JhCQeUwrhPPqzzChWr4eM-OjSPZQ/exec';
-      this.http.post(url, this.guestForm.value, { headers }).subscribe();
+      const data = this.guests.getRawValue();
+      const id = data[0].phone;
+      const weddingDocRef = doc(this.firestore, 'wedding', id);
+      setDoc(weddingDocRef, { ...data });
     }
   }
 
