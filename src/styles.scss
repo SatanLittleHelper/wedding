@@ -4,6 +4,7 @@
 @use "fonts";
 
 .container {
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
 }

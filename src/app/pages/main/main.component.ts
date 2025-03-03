@@ -1,13 +1,14 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
 import { Timing, TimingComponent } from '../../components/timing/timing.component';
+import { DressCodeComponent } from '../../components/dress-code/dress-code.component';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ButtonComponent, TimingComponent],
+  imports: [ButtonComponent, TimingComponent, DressCodeComponent],
 })
 export class MainComponent {
   protected timings: Timing[] = [

@@ -1,0 +1,8 @@
+<div class="dress-code">
+  @for (color of colors; track color) {
+    <div
+      class="color"
+      [ngClass]="color.toLowerCase()"
+    ></div>
+  }
+</div>

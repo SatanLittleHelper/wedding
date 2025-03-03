@@ -1,0 +1,42 @@
+.dress-code {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  row-gap: 24px;
+  justify-content: space-evenly;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 120px);
+    row-gap: 48px;
+  }
+}
+
+.color {
+  height: 30px;
+  @media (min-width: 768px) {
+    height: 60px;
+  }
+}
+
+.blaze {
+  background-color: #e35435;
+}
+
+.mocha {
+  background-color: #56352d;
+}
+
+.evergreen {
+  background-color: #0b623b;
+}
+
+.coral {
+  background-color: #fca78c;
+}
+
+.beige {
+  background-color: #e5ceb7;
+}
+
+.meadow {
+  background-color: #a2c97f;
+}
