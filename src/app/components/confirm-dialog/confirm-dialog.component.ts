@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { TuiDialogContext, TuiTextfieldComponent, TuiTextfieldDirective } from '@taiga-ui/core';
+import {
+  TuiAlertService, TuiDialogContext, TuiTextfieldComponent, TuiTextfieldDirective,
+} from '@taiga-ui/core';
 import { tuiAutoFocusOptionsProvider } from '@taiga-ui/cdk';
 import { injectContext } from '@taiga-ui/polymorpheus';
 import {
@@ -37,6 +39,7 @@ export class ConfirmDialogComponent {
 
   private readonly context = injectContext<TuiDialogContext<boolean>>();
   private firestore = inject(Firestore);
+  private readonly alerts = inject(TuiAlertService);
 
   constructor(private fb: FormBuilder) {
     this.guestForm = this.fb.group({
@@ -71,6 +74,8 @@ export class ConfirmDialogComponent {
       const id = data[0].phone;
       const weddingDocRef = doc(this.firestore, 'wedding', id);
       setDoc(weddingDocRef, { ...data });
+      this.alerts.open('Спасибо! <3', { appearance: 'positive' }).subscribe();
+      this.close();
     }
   }
 
