@@ -54,7 +54,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -66,9 +66,9 @@
               "baseHref": "/wedding/"
             },
             "development": {
-              "optimization": false,
+              "optimization": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": false
             }
           },
           "defaultConfiguration": "production"
