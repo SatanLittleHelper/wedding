@@ -17,6 +17,7 @@
                 tuiTextfield
                 formControlName="firstName"
                 placeholder="Имя"
+                [invalid]="guest.get('firstName')!.hasError('required') && guest.get('firstName')!.touched"
               />
             </tui-textfield>
             <tui-textfield>
@@ -26,6 +27,7 @@
                 tuiTextfield
                 formControlName="lastName"
                 placeholder="Фамилия"
+                [invalid]="guest.get('lastName')!.hasError('required') && guest.get('lastName')!.touched"
               />
             </tui-textfield>
             <tui-textfield>
@@ -34,6 +36,7 @@
                 tuiInputPhoneInternational
                 formControlName="phone"
                 [countries]="countries"
+                [invalid]="guest.get('phone')!.hasError('required') && guest.get('phone')!.touched"
               />
             </tui-textfield>
             <tui-textfield>

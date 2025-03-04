@@ -76,6 +76,8 @@ export class ConfirmDialogComponent {
       setDoc(weddingDocRef, { ...data });
       this.alerts.open('Спасибо! <3', { appearance: 'positive' }).subscribe();
       this.close();
+    } else {
+      this.guests.markAllAsTouched();
     }
   }
 

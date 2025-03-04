@@ -1,0 +1,9 @@
+<div class="container">
+  @for (item of items$ | async; track item) {
+    <ul>
+      {{
+        item | json
+      }}
+    </ul>
+  }
+</div>
