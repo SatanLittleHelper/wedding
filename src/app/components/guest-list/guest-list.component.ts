@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
-import { Observable, tap } from 'rxjs';
-import { AsyncPipe, JsonPipe } from '@angular/common';
+import { map, Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 interface Guest {
   firstName: string;
@@ -15,15 +15,17 @@ interface Guest {
   templateUrl: './guest-list.component.html',
   styleUrl: './guest-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [AsyncPipe, JsonPipe],
+  imports: [AsyncPipe],
 })
 export class GuestListComponent {
-  private firestore = inject(Firestore);
+  items$: Observable<Guest[][]>;
 
-  items$: Observable<any[]>;
+  private firestore = inject(Firestore);
 
   constructor() {
     const aCollection = collection(this.firestore, 'wedding');
-    this.items$ = collectionData(aCollection).pipe();
+    this.items$ = collectionData(aCollection).pipe(
+      map((value) => [...(value.map((item) => Object.values(item)) as Guest[][])]),
+    );
   }
 }

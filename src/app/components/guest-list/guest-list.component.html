@@ -1,9 +1,12 @@
 <div class="container">
   @for (item of items$ | async; track item) {
     <ul>
-      {{
-        item | json
-      }}
+      @for (guest of item; track guest.phone) {
+        <li>{{ guest.firstName }}</li>
+        <li>{{ guest.lastName }}</li>
+        <li>{{ guest.phone }}</li>
+        <li>{{ guest.telegram }}</li>
+      }
     </ul>
   }
 </div>
