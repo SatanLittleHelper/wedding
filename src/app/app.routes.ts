@@ -8,7 +8,7 @@ export const routes: Routes = [
     component: MainComponent,
   },
   {
-    path: 'guests',
+    path: '/guests',
     component: GuestListComponent,
   },
 ];
