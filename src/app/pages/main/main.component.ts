@@ -69,7 +69,9 @@ export class MainComponent {
 
     document.addEventListener('visibilitychange', checkVisibility);
 
-    window.location.href = yandexUrl;
+    setTimeout(() => {
+      window.open(yandexUrl, '_self');
+    }, 100);
 
     setTimeout(() => {
       document.removeEventListener('visibilitychange', checkVisibility);
