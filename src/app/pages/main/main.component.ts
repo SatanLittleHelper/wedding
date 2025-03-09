@@ -54,25 +54,21 @@ export class MainComponent {
     return ['55.376623', '35.857011'];
   }
 
-  protected get mapUrl(): string {
-    const [lat, lng] = this.location;
-
-    return `https://yandex.ru/maps/?rtext=~${lat},${lng}&rtt=auto`;
-  }
-
   protected openYandexNav(event: MouseEvent): void {
     const [lat, lng] = this.location;
+    event.preventDefault();
 
     const navigatorLink = `yandexnavi://build_route_on_map?lat_to=${lat}&lon_to=${lng}`;
+    const mapsUrl = `https://yandex.ru/maps/?rtext=~${lat},${lng}&rtt=auto`;
 
-    const a = document.createElement('a');
-    a.href = navigatorLink;
-    a.click();
+    const hiddenBefore = document.hidden;
+
+    window.location.href = navigatorLink;
 
     setTimeout(() => {
-      window.open(this.mapUrl, '_blank');
-    }, 500);
-
-    event.preventDefault();
+      if (!document.hidden || hiddenBefore) {
+        window.open(mapsUrl, '_blank');
+      }
+    }, 1000);
   }
 }
