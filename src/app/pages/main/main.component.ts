@@ -53,10 +53,7 @@ export class MainComponent {
   protected openMap(event: MouseEvent): void {
     event.preventDefault();
 
-    const location = ['55.376623', '35.857011'];
-    const [lat, lng] = location;
-
-    const fallback = `https://yandex.ru/maps/?rtext=~${lat},${lng}&rtt=auto`;
+    const fallback = 'https://yandex.ru/navi?rtext=55.759274,37.404824~55.375934,35.854115&rtt=auto';
     window.open(fallback, '_blank');
   }
 }
