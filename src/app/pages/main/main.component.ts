@@ -72,7 +72,7 @@ export class MainComponent {
     setTimeout(() => {
       document.removeEventListener('visibilitychange', checkVisibility);
       if (!isAppOpened) {
-        window.open(fallbackUrl, '_blank');
+        window.location.href = fallbackUrl;
       }
     }, 2000);
   }
