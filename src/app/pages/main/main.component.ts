@@ -56,28 +56,7 @@ export class MainComponent {
     const location = ['55.376623', '35.857011'];
     const [lat, lng] = location;
 
-    const yandexUrl = `yandexnavi://build_route_on_map?lat_to=${lat}&lon_to=${lng}`;
     const fallback = `https://yandex.ru/maps/?rtext=~${lat},${lng}&rtt=auto`;
-
-    let isInstalled = false;
-
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.src = yandexUrl;
-
-    iframe.onload = (): void => {
-      isInstalled = true;
-      iframe.remove();
-    };
-
-    document.body.appendChild(iframe);
-    setTimeout((): void => {
-      if (!isInstalled) {
-        window.open(fallback, '_blank');
-      } else {
-        window.location.href = yandexUrl;
-      }
-      iframe.remove();
-    }, 1000);
+    window.open(fallback, '_blank');
   }
 }
