@@ -21,6 +21,12 @@
     background-color: #BDAAA6;
   }
 
+  &_size {
+    &_small {
+      padding: 0;
+    }
+  }
+
   &__text {
     font-size: 15px;
   }

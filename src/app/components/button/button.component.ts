@@ -11,4 +11,5 @@ export type BtnType = 'main' | 'secondary';
 })
 export class ButtonComponent {
   @Input() type: BtnType = 'main';
+  @Input() size: 'small' | null = 'small';
 }
