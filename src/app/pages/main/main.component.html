@@ -55,7 +55,14 @@
   alt=""
 />
 <section>
-  <app-button (click)="openMap()"> посмотреть на карте </app-button>
+  <a
+    app-button
+    [href]="mapUrl"
+    (click)="openYandexNav($event)"
+    target="_blank"
+  >
+    посмотреть на карте
+  </a>
 </section>
 <section>
   <p class="text">

@@ -3,7 +3,7 @@ import { NgClass } from '@angular/common';
 
 export type BtnType = 'main' | 'secondary';
 @Component({
-  selector: 'app-button',
+  selector: 'app-button, a[app-button]',
   imports: [NgClass],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
