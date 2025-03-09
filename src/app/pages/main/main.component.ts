@@ -59,25 +59,10 @@ export class MainComponent {
     const yandexUrl = `yandexnavi://build_route_on_map?lat_to=${lat}&lon_to=${lng}`;
     const fallbackUrl = `https://yandex.ru/maps/?rtext=~${lat},${lng}&rtt=auto`;
 
-    let isAppOpened = false;
-
-    const checkVisibility = (): void => {
-      if (document.hidden) {
-        isAppOpened = true;
-      }
-    };
-
-    document.addEventListener('visibilitychange', checkVisibility);
+    window.location.href = yandexUrl;
 
     setTimeout(() => {
-      window.open(yandexUrl, '_self');
-    }, 100);
-
-    setTimeout(() => {
-      document.removeEventListener('visibilitychange', checkVisibility);
-      if (!isAppOpened) {
-        window.open(fallbackUrl, '_blank');
-      }
-    }, 1000);
+      window.open(fallbackUrl, '_blank');
+    }, 2000);
   }
 }
