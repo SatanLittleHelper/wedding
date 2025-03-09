@@ -50,7 +50,6 @@ export class MainComponent {
     this.dialog().subscribe();
   }
 
-
   protected openMap(event: MouseEvent): void {
     event.preventDefault();
 
@@ -68,6 +67,7 @@ export class MainComponent {
 
     iframe.onload = (): void => {
       isInstalled = true;
+      iframe.remove();
     };
 
     document.body.appendChild(iframe);
@@ -77,6 +77,7 @@ export class MainComponent {
       } else {
         window.location.href = yandexUrl;
       }
-    }, 100);
+      iframe.remove();
+    }, 1000);
   }
 }
