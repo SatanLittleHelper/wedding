@@ -50,24 +50,31 @@ export class MainComponent {
     this.dialog().subscribe();
   }
 
-  private get location(): string[] {
-    return ['55.376623', '35.857011'];
-  }
-
-  protected openYandexNav(event: MouseEvent): void {
-    const [lat, lng] = this.location;
+  protected openMap(event: MouseEvent): void {
     event.preventDefault();
 
-    const navigatorLink = `yandexnavi://build_route_on_map?lat_to=${lat}&lon_to=${lng}`;
-    const mapsUrl = `https://yandex.ru/maps/?rtext=~${lat},${lng}&rtt=auto`;
+    const location = ['55.376623', '35.857011'];
+    const [lat, lng] = location;
 
-    const hiddenBefore = document.hidden;
+    const yandexUrl = `yandexnavi://build_route_on_map?lat_to=${lat}&lon_to=${lng}`;
+    const fallbackUrl = `https://yandex.ru/maps/?rtext=~${lat},${lng}&rtt=auto`;
 
-    window.location.href = navigatorLink;
+    let isAppOpened = false;
+
+    const checkVisibility = (): void => {
+      if (document.hidden) {
+        isAppOpened = true;
+      }
+    };
+
+    document.addEventListener('visibilitychange', checkVisibility);
+
+    window.location.href = yandexUrl;
 
     setTimeout(() => {
-      if (!document.hidden || hiddenBefore) {
-        window.open(mapsUrl, '_blank');
+      document.removeEventListener('visibilitychange', checkVisibility);
+      if (!isAppOpened) {
+        window.open(fallbackUrl, '_blank');
       }
     }, 1000);
   }
