@@ -50,6 +50,7 @@ export class MainComponent {
     this.dialog().subscribe();
   }
 
+
   protected openMap(event: MouseEvent): void {
     event.preventDefault();
 
@@ -57,12 +58,25 @@ export class MainComponent {
     const [lat, lng] = location;
 
     const yandexUrl = `yandexnavi://build_route_on_map?lat_to=${lat}&lon_to=${lng}`;
-    const fallbackUrl = `https://yandex.ru/maps/?rtext=~${lat},${lng}&rtt=auto`;
+    const fallback = `https://yandex.ru/maps/?rtext=~${lat},${lng}&rtt=auto`;
 
-    window.location.href = yandexUrl;
+    let isInstalled = false;
 
-    setTimeout(() => {
-      window.open(fallbackUrl, '_blank');
-    }, 2000);
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = yandexUrl;
+
+    iframe.onload = (): void => {
+      isInstalled = true;
+    };
+
+    document.body.appendChild(iframe);
+    setTimeout((): void => {
+      if (!isInstalled) {
+        window.open(fallback, '_blank');
+      } else {
+        window.location.href = yandexUrl;
+      }
+    }, 100);
   }
 }
