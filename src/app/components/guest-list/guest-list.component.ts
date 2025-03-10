@@ -28,4 +28,13 @@ export class GuestListComponent {
       map((value) => [...(value.map((item) => Object.values(item)) as Guest[][])]),
     );
   }
+
+  protected getPhoneLink(guest: Guest): string {
+    return `tel: ${guest.phone}`;
+  }
+  protected getTelegramLink(guest: Guest): string {
+    const link = guest.telegram.replace(/^@/, '');
+
+    return `https://t.me/${link}`;
+  }
 }

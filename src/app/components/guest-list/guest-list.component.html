@@ -1,12 +1,18 @@
 <div class="container">
-  @for (item of items$ | async; track item) {
-    <ul>
-      @for (guest of item; track guest.phone) {
-        <li>{{ guest.firstName }}</li>
-        <li>{{ guest.lastName }}</li>
-        <li>{{ guest.phone }}</li>
-        <li>{{ guest.telegram }}</li>
-      }
-    </ul>
-  }
+  <div class="family">
+    @for (item of items$ | async; track item) {
+      <div class="family-item">
+        @for (guest of item; track guest.phone) {
+          <div class="item">
+            <div>Имя: {{ guest.firstName }}</div>
+            <div>Фамилия: {{ guest.lastName }}</div>
+            <a [href]="getPhoneLink(guest)">Позвонить</a>
+            @if (guest.telegram) {
+              <a [href]="getTelegramLink(guest)">telegram</a>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
 </div>

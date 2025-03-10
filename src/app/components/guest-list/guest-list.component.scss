@@ -1,3 +1,29 @@
 :host {
   background-color: var(--bg-color);
 }
+
+.family {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+
+}
+
+.family-item {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px;
+  gap: 16px;
+
+  &:not(first-child) {
+    margin-top: 24px;
+  }}
+
+.item {
+  display: flex;
+  flex-direction: column;
+
+  &:not(first-child) {
+    margin-top: 16px;
+  }
+}
